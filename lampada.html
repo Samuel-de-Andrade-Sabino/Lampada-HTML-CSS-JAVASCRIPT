@@ -22,12 +22,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px;
         }
 
         svg {
             width: 200px;
             height: 200px;
+
             cursor: pointer;
 
             fill: #555;
@@ -40,41 +40,6 @@
         svg.acesa {
             fill: #ff0;
             filter: drop-shadow(0 0 20px #ff0);
-            animation: acender 1s infinite alternate;
-        }
-
-        @keyframes acender {
-            0% {
-                fill: #f80;
-                filter: drop-shadow(0 0 5px #f80);
-                transform: scale(1);
-            }
-
-            100% {
-                fill: #ff0;
-                filter: drop-shadow(0 0 20px #ff0);
-                transform: scale(1.1);
-            }
-        }
-
-        button {
-            padding: 12px 30px;
-            font-size: 18px;
-            font-weight: bold;
-
-            border: none;
-            border-radius: 10px;
-
-            cursor: pointer;
-
-            background-color: #222;
-            color: white;
-
-            transition: 0.3s;
-        }
-
-        button:hover {
-            transform: scale(1.05);
         }
     </style>
 </head>
@@ -84,14 +49,18 @@
     <div class="container">
 
         <!-- LÂMPADA -->
-        <svg fill="#000000"
+        <svg
+            fill="#000000"
             version="1.1"
             id="Capa_1"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 67.637 67.637">
+            viewBox="0 0 67.637 67.637"
+            onclick="alternarLampada()"
+        >
 
             <g>
                 <g>
+
                     <path d="M40.303,63.148H28.333c-1.239,0-2.244,1.006-2.244,2.244
                     c0,1.239,1.005,2.244,2.244,2.244h11.969
                     c1.238,0,2.244-1.005,2.244-2.244
@@ -125,14 +94,11 @@
                     c10.827,0,19.638,8.809,19.638,19.637
                     C53.457,28.99,48.399,36.154,43.938,42.473z">
                     </path>
+
                 </g>
             </g>
-        </svg>
 
-        <!-- BOTÃO -->
-        <button id="botao" onclick="alternarLampada()">
-            ACENDER
-        </button>
+        </svg>
 
     </div>
 
@@ -140,15 +106,9 @@
         function alternarLampada() {
 
             const lampada = document.querySelector("svg");
-            const botao = document.getElementById("botao");
 
             lampada.classList.toggle("acesa");
 
-            if (lampada.classList.contains("acesa")) {
-                botao.textContent = "DESLIGAR";
-            } else {
-                botao.textContent = "ACENDER";
-            }
         }
     </script>
 
