@@ -4,24 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Lâmpada</title>
 
     <style>
         body {
             background-color: #333;
             margin: 0;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
 
         svg {
             width: 200px;
+            height: 200px;
             cursor: pointer;
+
+            fill: #555;
+            filter: none;
+
+            transition: 0.3s;
+        }
+
+        /* Lâmpada acesa */
+        svg.acesa {
+            fill: #ff0;
+            filter: drop-shadow(0 0 20px #ff0);
             animation: acender 1s infinite alternate;
         }
 
         @keyframes acender {
             0% {
                 fill: #f80;
-                filter: drop-shadow(0 0 2px #f80);
+                filter: drop-shadow(0 0 5px #f80);
                 transform: scale(1);
             }
 
@@ -31,12 +56,101 @@
                 transform: scale(1.1);
             }
         }
+
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            font-weight: bold;
+
+            border: none;
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            background-color: #222;
+            color: white;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 
 <body>
 
-    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 67.637 67.637" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M40.303,63.148H28.333c-1.239,0-2.244,1.006-2.244,2.244c0,1.239,1.005,2.244,2.244,2.244h11.969 c1.238,0,2.244-1.005,2.244-2.244C42.547,64.154,41.541,63.148,40.303,63.148z"></path> <path d="M40.303,57.414H28.333c-1.239,0-2.244,1.005-2.244,2.244c0,1.24,1.005,2.244,2.244,2.244h11.969 c1.238,0,2.244-1.004,2.244-2.244C42.547,58.419,41.541,57.414,40.303,57.414z"></path> <path d="M33.819,0C20.516,0,9.693,10.822,9.693,24.125c0,7.787,6.428,16.992,11.818,23.343c2.736,3.226,3.719,4.751,4.064,5.39 c-0.014,0.102-0.021,0.207-0.021,0.313c0,1.239,1.004,2.244,2.244,2.244h13.002c0.012-0.001,0.021,0,0.031,0 c1.238,0,2.243-1.005,2.243-2.244c0-0.312-0.063-0.608-0.179-0.878c0.219-0.508,0.714-1.467,1.824-3.102 c0.912-1.34,1.89-2.725,2.882-4.129c5.084-7.201,10.341-14.647,10.341-20.938C57.944,10.822,47.123,0,33.819,0z M43.938,42.473 c-1.009,1.428-2,2.833-2.929,4.197c-1.196,1.761-1.981,3.134-2.4,4.256h-8.983c-0.715-1.402-2.146-3.363-4.691-6.363 c-6.934-8.166-10.751-15.426-10.751-20.438c0-10.828,8.809-19.637,19.637-19.637c10.827,0,19.638,8.809,19.638,19.637 C53.457,28.99,48.399,36.154,43.938,42.473z"></path> </g> </g> </g></svg>
+    <div class="container">
+
+        <!-- LÂMPADA -->
+        <svg fill="#000000"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 67.637 67.637">
+
+            <g>
+                <g>
+                    <path d="M40.303,63.148H28.333c-1.239,0-2.244,1.006-2.244,2.244
+                    c0,1.239,1.005,2.244,2.244,2.244h11.969
+                    c1.238,0,2.244-1.005,2.244-2.244
+                    C42.547,64.154,41.541,63.148,40.303,63.148z">
+                    </path>
+
+                    <path d="M40.303,57.414H28.333c-1.239,0-2.244,1.005-2.244,2.244
+                    c0,1.24,1.005,2.244,2.244,2.244h11.969
+                    c1.238,0,2.244-1.004,2.244-2.244
+                    C42.547,58.419,41.541,57.414,40.303,57.414z">
+                    </path>
+
+                    <path d="M33.819,0C20.516,0,9.693,10.822,9.693,24.125
+                    c0,7.787,6.428,16.992,11.818,23.343
+                    c2.736,3.226,3.719,4.751,4.064,5.39
+                    c-0.014,0.102-0.021,0.207-0.021,0.313
+                    c0,1.239,1.004,2.244,2.244,2.244h13.002
+                    c0.012-0.001,0.021,0,0.031,0
+                    c1.238,0,2.243-1.005,2.243-2.244
+                    c0-0.312-0.063-0.608-0.179-0.878
+                    c0.219-0.508,0.714-1.467,1.824-3.102
+                    c0.912-1.34,1.89-2.725,2.882-4.129
+                    c5.084-7.201,10.341-14.647,10.341-20.938
+                    C57.944,10.822,47.123,0,33.819,0z
+
+                    M43.938,42.473c-1.009,1.428-2,2.833-2.929,4.197
+                    c-1.196,1.761-1.981,3.134-2.4,4.256h-8.983
+                    c-0.715-1.402-2.146-3.363-4.691-6.363
+                    c-6.934-8.166-10.751-15.426-10.751-20.438
+                    c0-10.828,8.809-19.637,19.637-19.637
+                    c10.827,0,19.638,8.809,19.638,19.637
+                    C53.457,28.99,48.399,36.154,43.938,42.473z">
+                    </path>
+                </g>
+            </g>
+        </svg>
+
+        <!-- BOTÃO -->
+        <button id="botao" onclick="alternarLampada()">
+            ACENDER
+        </button>
+
+    </div>
+
+    <script>
+        function alternarLampada() {
+
+            const lampada = document.querySelector("svg");
+            const botao = document.getElementById("botao");
+
+            lampada.classList.toggle("acesa");
+
+            if (lampada.classList.contains("acesa")) {
+                botao.textContent = "DESLIGAR";
+            } else {
+                botao.textContent = "ACENDER";
+            }
+        }
+    </script>
 
 </body>
 
